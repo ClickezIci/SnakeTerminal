@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <fcntl.h>
+#include <chrono>
 
 //#include "AppState.hpp"
 #include "Structures.hpp"
@@ -160,6 +161,11 @@ void snakeTerminal(std::string language){
                 //buildBoard(board);              // murs uniquement
                 game.snake.clear();
                 initSnake(game.snake, game.head, game.border);
+
+                const auto seed =
+                    std::chrono::steady_clock::now().time_since_epoch().count(); //Pour un vrai randomize
+
+                srand(static_cast<unsigned int>(seed));
                 foodPlacement(game.border, game.snake, game.food);
                 buildSnakeLevel(board, display.getTheme());
 
