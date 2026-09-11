@@ -155,12 +155,12 @@ void snakeTerminal(std::string language){
             nodelay(stdscr, TRUE);
 
             if (app.screenJustEntered) {
-                foodPlacement(game.border, game.snake, game.food);
                 board.clearAllCells();
                 applySnakeSkin(display.getTheme(), SnakeSkinId::CLASSIC);
                 //buildBoard(board);              // murs uniquement
                 game.snake.clear();
                 initSnake(game.snake, game.head, game.border);
+                foodPlacement(game.border, game.snake, game.food);
                 buildSnakeLevel(board, display.getTheme());
 
                 app.screenJustEntered = false;
