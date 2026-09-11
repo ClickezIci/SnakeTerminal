@@ -13,7 +13,8 @@ void ncurseInit(){
     cbreak();             // lecture immédiate des touches
     noecho();             // N'affiche pas les touches tapées
     curs_set(0);          // Cache le curseur
-    nodelay(stdscr, TRUE); // Active les touches spéciales
+    keypad(stdscr, TRUE);  // Interprète les touches spéciales
+    nodelay(stdscr, TRUE); // getch() ne bloque pas
     clear();
 }
 
