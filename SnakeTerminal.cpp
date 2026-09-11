@@ -164,8 +164,8 @@ void snakeTerminal(std::string language){
 
                 const auto seed =
                     std::chrono::steady_clock::now().time_since_epoch().count(); //Pour un vrai randomize
-
                 srand(static_cast<unsigned int>(seed));
+
                 foodPlacement(game.border, game.snake, game.food);
                 buildSnakeLevel(board, display.getTheme());
 
