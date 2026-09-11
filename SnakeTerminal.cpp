@@ -111,15 +111,11 @@ void snakeTerminal(std::string language){
             display.getTheme().clearOverrides();   // 🔥 OBLIGATOIRE
             board.clearGameplayCells();
             if (app.screenJustEntered) {
-                foodPlacement(game.border, game.snake, game.food);
+
                 //board.clearTextCells();   // init une fois
 
                 game.alive = true;
                 game.ateFood = false;
-
-                game.snake.clear();
-                initSnake(game.snake, game.head, game.border);
-
 
 
                 /*// read
@@ -159,9 +155,12 @@ void snakeTerminal(std::string language){
             nodelay(stdscr, TRUE);
 
             if (app.screenJustEntered) {
+                foodPlacement(game.border, game.snake, game.food);
                 board.clearAllCells();
                 applySnakeSkin(display.getTheme(), SnakeSkinId::CLASSIC);
                 //buildBoard(board);              // murs uniquement
+                game.snake.clear();
+                initSnake(game.snake, game.head, game.border);
                 buildSnakeLevel(board, display.getTheme());
 
                 app.screenJustEntered = false;
