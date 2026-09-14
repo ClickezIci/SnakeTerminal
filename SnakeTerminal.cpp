@@ -175,6 +175,10 @@ void snakeTerminal(std::string language){
             // 1️⃣ INPUT
             handleGameInput(language, app, game, ch);
 
+            if (app.screen != Screen::GAME) {
+                break;
+            }
+
             // 2️⃣ UPDATE (logique pure)
             if ((game.dir == Direction::UP    && game.nextDir != Direction::DOWN) ||
                 (game.dir == Direction::DOWN  && game.nextDir != Direction::UP)   ||
