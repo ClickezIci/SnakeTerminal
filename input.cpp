@@ -62,7 +62,7 @@ void handlePauseInput(AppState &app,
 
     if (ch == ' '){
         app.screen = Screen::GAME;
-        app.screenJustEntered = true;
+        app.screenJustEntered = false;
     }
     else if (ch == 27) {
         app.screen = Screen::EXIT;
